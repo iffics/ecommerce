@@ -1,0 +1,30 @@
+<style type="text/css">
+	.thumbnail{
+		background-color: transparent;
+        border: 1px groove #f7ecb5;
+        border-radius: 33px;
+        color: #00B2FF;
+        background-size: 20px;
+	}
+
+	.well {
+    background: cornsilk;
+}
+/*.well {
+        background-image: -webkit-linear-gradient(top, whiteSmoke 70%,#EEE 100%);
+        background-color: cyan;
+        }*/
+</style>
+
+<div class="thumbnail">
+<br>
+<h4 class="text-center well "><a href='{{ product.get_absolute_url }}'>{{ product.title }}</a></h4><br><br>
+
+    {% if product.get_image_url %}
+	<a href='{{ product.get_absolute_url }}'><img id='img' class='img-responsive    ' src='{{ product.get_image_url }}' /></a><br/>
+	{% endif %}
+
+	{% if price == "True" %}
+		<span class="text-center"><h6>{{ product.variation_set.first.get_html_price }}</h6></span>
+	{% endif %}
+</div>
